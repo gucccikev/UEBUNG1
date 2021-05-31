@@ -17,8 +17,17 @@ public class PasswordTest {
     @Test
     @DisplayName("Has to have upper and lowercase")
     public void upLowCaseTest(){
-        Password p = new Password("HelLo1234");
+        Password p = new Password("OoOOOOo");
         boolean actual = p.upLowCase();
         assertTrue(actual);
     }
+
+    @Test
+    @DisplayName("Has to have numbers")
+    public void containsNumbersTest(){
+        Password p = new Password("hello121");
+        boolean actual = p.containsNumbers();
+        assertTrue(actual);
+    }
+
 }
