@@ -33,9 +33,16 @@ public class PasswordTest {
     @Test
     @DisplayName("Has minimum one of the symbols")
     public void containsSymbolTest(){
-        Password p = new Password("%kg#");
+        Password p = new Password("{kg");
         boolean actual = p.containsSymbol();
         assertTrue(actual);
     }
 
+    @Test
+    @DisplayName("More than two numbers (right after) not allowed")
+    public void notTwoNumTest(){
+        Password p = new Password("758");
+        boolean actual = p.notTwoNum();
+        assertTrue(actual);
+    }
 }

@@ -44,6 +44,16 @@ public class Password {
     }
 
 
+    public boolean containsSymbol(){
+        boolean containsSym = false;
+
+        for(int i = 0; i < password.length(); i++){
+            if(password.contains("[()#$?!%/@]+")){
+                containsSym = true;
+            }
+        }
+        return true;
+    }
 
     public String showIfValid(boolean passwordValid){
         if(passwordValid){
