@@ -32,6 +32,19 @@ public class Password {
     }
 
 
+    public boolean containsNumbers(){
+        boolean containsNum = false;
+
+        for(int i = 0; i < password.length(); i++){
+            if(password.contains("[0-9]+")){
+                containsNum = true;
+            }
+        }
+        return true;
+    }
+
+
+
     public String showIfValid(boolean passwordValid){
         if(passwordValid){
             return "Valid password";

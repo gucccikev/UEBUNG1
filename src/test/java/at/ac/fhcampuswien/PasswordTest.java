@@ -25,8 +25,16 @@ public class PasswordTest {
     @Test
     @DisplayName("Has to have numbers")
     public void containsNumbersTest(){
-        Password p = new Password("hello121");
+        Password p = new Password("768gdf6");
         boolean actual = p.containsNumbers();
+        assertTrue(actual);
+    }
+
+    @Test
+    @DisplayName("Has minimum one of the symbols")
+    public void containsSymbolTest(){
+        Password p = new Password("%kg#");
+        boolean actual = p.containsSymbol();
         assertTrue(actual);
     }
 
