@@ -8,14 +8,17 @@ public class PasswordTest {
 
     @Test
     @DisplayName("Does password have valid length?")
-    public void validLength(){
-        Password p = new Password();
-        assertTrue(p.checkLength("hello1234"));
+    public void validLengthTest(){
+        Password p = new Password("hello1234");
+        boolean actual = p.validLength();
+        assertTrue(actual);
     }
 
     @Test
     @DisplayName("Has to have upper and lowercase")
-    public void upLowCase(){
-
+    public void upLowCaseTest(){
+        Password p = new Password("HelLo1234");
+        boolean actual = p.upLowCase();
+        assertTrue(actual);
     }
 }

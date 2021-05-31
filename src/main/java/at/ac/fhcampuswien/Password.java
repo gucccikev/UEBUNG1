@@ -2,13 +2,17 @@ package at.ac.fhcampuswien;
 
 public class Password {
 
-    public static void main(String[] args){
+    private String password;
 
+    public Password(String password){
+        this.password = password;
     }
 
-    public boolean checkLength(String password){
+    public boolean validLength(){
         return password.length() >= 8 && password.length() <= 25;
     }
+
+
 
 
     public String showIfValid(boolean passwordValid){
