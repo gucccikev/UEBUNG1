@@ -3,63 +3,7 @@ import java.lang.*;
 
 public class Password {
 
-    private String password;
-
-    public Password(String password){
-        this.password = password;
-    }
-
-    public boolean validLength(){
-        return password.length() >= 8 && password.length() <= 25;
-    }
-
-    public boolean upLowCase(){
-        boolean isUp = false;
-        boolean isLow = false;
-
-        for(int i = 0; i < password.length(); i++){
-            if(Character.isUpperCase(password.charAt(i))){
-                isUp = true;
-            }
-            if(Character.isLowerCase(password.charAt(i))){
-                isLow = true;
-            }
-            if(isLow && isUp){
-               return true; // if condition true, no need to loop once again
-           }
-        }
-        return false;
-    }
 
 
-    public boolean containsNumbers(){
-        boolean containsNum = false;
 
-        for(int i = 0; i < password.length(); i++){
-            if(password.contains("[0-9]+")){
-                containsNum = true;
-            }
-        }
-        return true;
-    }
-
-
-    public boolean containsSymbol(){
-        boolean containsSym = false;
-
-        for(int i = 0; i < password.length(); i++){
-            if(password.contains("[()#$?!%/@]+")){
-                containsSym = true;
-            }
-        }
-        return true;
-    }
-
-    public String showIfValid(boolean passwordValid){
-        if(passwordValid){
-            return "Valid password";
-        } else {
-            return "Not a valid password";
-        }
-    }
 }
