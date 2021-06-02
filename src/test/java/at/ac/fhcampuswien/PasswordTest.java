@@ -9,8 +9,8 @@ public class PasswordTest {
     @Test
     @DisplayName("Does password have valid length?")
     public void validLengthTest(){
-        Password p = new Password("hello1234");
-        boolean actual = p.validLength();
+        Password p = new Password();
+        boolean actual = p.validLength("hello1324");
         assertTrue(actual);
     }
 
@@ -18,40 +18,48 @@ public class PasswordTest {
     @Test
     @DisplayName("Has to have upper and lowercase")
     public void upLowCaseTest(){
-        Password p = new Password("OoOOOOo");
-        boolean actual = p.upLowCase();
+        Password p = new Password();
+        boolean actual = p.upLowCase("OoOOOOo");
         assertTrue(actual);
     }
 
     @Test
     @DisplayName("Has to have numbers")
     public void containsNumbersTest(){
-        Password p = new Password("hgd789");
-        boolean actual = p.containsNumbers();
+        Password p = new Password();
+        boolean actual = p.containsNumbers("hgd789");
         assertTrue(actual);
     }
 
     @Test
     @DisplayName("Has minimum one of the symbols")
     public void containsSymbolTest(){
-        Password p = new Password("sam#");
-        boolean actual = p.containsSymbol();
+        Password p = new Password();
+        boolean actual = p.containsSymbol("sam#");
         assertTrue(actual);
     }
 
     @Test
     @DisplayName("More than two numbers (right after) not allowed")
     public void notTwoNumTest(){
-        Password p = new Password("7ig1abc123");
-        boolean actual = p.notTwoNum();
+        Password p = new Password();
+        boolean actual = p.notTwoNum("7ig1abc123");
         assertTrue(actual);
     }
 
     @Test
     @DisplayName("Same number more than thrice not allowed")
     public void moreThanThriceTest(){
-        Password p = new Password("");
-        boolean actual = p.moreThanThrice();
+        Password p = new Password();
+        boolean actual = p.moreThanThrice("hiaaaa");
+        assertTrue(actual);
+    }
+
+    @Test
+    @DisplayName("Valid password")
+    public void checkPasswordTest(){
+        Password p = new Password();
+        boolean actual = p.checkPassword("Kev2002))");
         assertTrue(actual);
     }
 }

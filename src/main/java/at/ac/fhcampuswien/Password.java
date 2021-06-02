@@ -5,17 +5,11 @@ import java.util.regex.Pattern;
 
 public class Password {
 
-    private String password;
-
-    public Password(String password){
-        this.password = password;
-    }
-
-    public boolean validLength(){
+    public boolean validLength(String password){
         return password.length() >= 8 && password.length() <= 25;
     }
 
-    public boolean upLowCase(){
+    public boolean upLowCase(String password){
         boolean isUp = false;
         boolean isLow = false;
 
@@ -33,7 +27,7 @@ public class Password {
         return false;
     }
 
-    public boolean containsNumbers(){
+    public boolean containsNumbers(String password){
 
         for(int i = 0; i < password.length(); i++){
             if(password.matches(".*\\d.*")){
@@ -43,13 +37,11 @@ public class Password {
         return false;
     }
 
-    public boolean containsSymbol(){
+    public boolean containsSymbol(String password){
          return (password.matches(".*[()#$?!%/@].*"));
     }
 
-
-    public boolean notTwoNum(){
-        boolean notTwo = false;
+    public boolean notTwoNum(String password){
         int counter = 0;
         char previous = password.charAt(0);
 
@@ -70,13 +62,26 @@ public class Password {
         return true;
     }
 
+    public boolean moreThanThrice(String password){
+        int counter = 0;
+        char previous = password.charAt(0);
 
-
-    public String showIfValid(boolean passwordValid){
-        if(passwordValid){
-            return "Valid password";
-        } else {
-            return "Not a valid password";
+        for(int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isDigit(c)) {
+                if (previous == c) {
+                    counter++;
+                } else {
+                    counter = 1;
+                }
+                if (counter > 3) {
+                    return false;
+                }
+                previous = c;
+            }
         }
+        return true;
     }
+
+
 }
