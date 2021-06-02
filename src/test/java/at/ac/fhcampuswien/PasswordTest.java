@@ -14,7 +14,6 @@ public class PasswordTest {
         assertTrue(actual);
     }
 
-
     @Test
     @DisplayName("Has to have upper and lowercase")
     public void upLowCaseTest(){
@@ -27,7 +26,7 @@ public class PasswordTest {
     @DisplayName("Has to have numbers")
     public void containsNumbersTest(){
         Password p = new Password();
-        boolean actual = p.containsNumbers("hgd789");
+        boolean actual = p.containsNumbers("78945");
         assertTrue(actual);
     }
 
@@ -43,7 +42,7 @@ public class PasswordTest {
     @DisplayName("More than two numbers (right after) not allowed")
     public void notTwoNumTest(){
         Password p = new Password();
-        boolean actual = p.notTwoNum("7ig1abc123");
+        boolean actual = p.notTwoNum("7ig1abc12");
         assertTrue(actual);
     }
 
@@ -59,7 +58,7 @@ public class PasswordTest {
     @DisplayName("Valid password")
     public void checkPasswordTest(){
         Password p = new Password();
-        boolean actual = p.checkPassword("Kev2002))");
+        boolean actual = p.checkPassword("Kev2002)");
         assertTrue(actual);
     }
 }
